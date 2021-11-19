@@ -1,4 +1,3 @@
-//import { json } from "express";  --> giving error. WHY?
 import react from "react";
 import { useState, useEffect } from "react";
 import './Header.css';

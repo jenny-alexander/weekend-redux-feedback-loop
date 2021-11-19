@@ -1,68 +1,26 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
-import Header from '../Header/Header';
-import { Container, Grid, Card, CardContent, Typography, Button, Box } from '@mui/material';
-import { fontSize } from '@mui/system';
+import Main from '../Main/Main';
+import Feelings from '../Feelings/Feelings'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
 
-  const onClick = ( ) => {
-    console.log( `in onClick!` );
-  }
-
   return (
     <div className='App'>
-      <Header />
-      <body>        
-        <Container>
-          <Grid 
-            container 
-            direction="column" 
-            alignItems= 'center'            
-          >
-            <Grid item xs={12}>
-              <Card 
-                sx={{
-                  height: 275,
-                  width: 700
-                }}
-              >
-                <CardContent>
-                  <Typography 
-                    sx={{
-                      p:2,
-                      textAlign: 'center',
-                      fontSize: '30px'
-                    }}
-                  >
-                    Tell me about your learning experience.
-                  </Typography>
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-
-                    }}
-                  >
-                    <Button 
-                      variant="contained" 
-                      size="large"
-                      onClick={onClick}
-                      sx={{
-                          height: 60,
-                          width: 90,
-                          mt:5
-                      }}
-                    >Start</Button>
-                  </Box>     
-                </CardContent>
-              </Card>
-            </Grid>
-          </Grid>
-        </Container>
-      </body>
+      {/* <Main /> */}
+      <BrowserRouter>
+        <Routes>
+            <Route path='/' element ={<Main />}></Route>
+            <Route path='/feelings' element ={<Feelings />}></Route>
+            {/* <Route path='/understanding' element ={<Feedback type="understanding"/>}></Route>
+            <Route path='/support' element ={<Feedback type="support"/>}></Route>
+            <Route path='/comments' element ={<Feedback type="comments"/>}></Route> */}
+            {/* <Route path='/review' element ={<Review/>}></Route> */}
+            {/* <Route path='/admin' element ={<Admin/>}></Route> */}
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

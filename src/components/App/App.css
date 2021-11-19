@@ -1,28 +1,4 @@
-/* .App {
-  background-color: pink;
-} */
-
 body {
   background-color: #eaeff9d0;
 }
 
-.App-header {
-  background-color: #eaeff9d0;
-  min-height: 50px;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-.App-title {
-  font-size: 2em;
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-} 
-
-.App-subtitle {
-  font-size: 2em;
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 200
-} 

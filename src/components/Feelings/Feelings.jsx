@@ -3,8 +3,10 @@ import { useState, useEffect } from "react";
 import Header from '../Header/Header';
 import { Container, Grid, Card, CardContent, Typography, Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
-function Main( props ) {
+
+function Feelings( props ) {
     //const[ name, setName ] = useState( null ) {
+
     const onClick = ( ) => {
         console.log( `in onClick!` );
     }
@@ -27,23 +29,27 @@ function Main( props ) {
                         }}
                     >
                         <CardContent>
-                        <Typography 
-                            sx={{
-                            p:2,
-                            textAlign: 'center',
-                            fontSize: '30px'
-                            }}
-                        >
-                            Tell me about your learning experience today.
-                        </Typography>
-                        <Box
-                            sx={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
+                            <Typography 
+                                sx={{
+                                p:2,
+                                textAlign: 'center',
+                                fontSize: '30px'
+                                }}
+                            >
+                                How are you feeling today?
+                            </Typography>
 
-                            }}
-                        >
+
+
+                            
+                            <Box
+                                sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                
+                                }}
+                            >
                             <Button 
                             variant="contained" 
                             size="large"
@@ -51,23 +57,23 @@ function Main( props ) {
                             sx={{
                                 height: 60,
                                 width: 90,
-                                mt:5
+                                mt:5,
+                                mr: 5
                             }}>
                             <Link to="/main">Back</Link>
-                            </Button>     
-                                                   
-                            <Button 
-                            variant="contained" 
-                            size="large"
-                            onClick={onClick}
-                            sx={{
-                                height: 60,
-                                width: 90,
-                                mt:5
-                            }}>
-                            <Link to="/feelings">Start</Link>
-                            </Button>
-                        </Box>     
+                            </Button>    
+
+                                <Button 
+                                variant="contained" 
+                                size="large"
+                                onClick={onClick}
+                                sx={{
+                                    height: 60,
+                                    width: 90,
+                                    mt:5
+                                }}
+                                >Next</Button>
+                            </Box>     
                         </CardContent>
                     </Card>
                     </Grid>
@@ -78,4 +84,4 @@ function Main( props ) {
     )
 }
 
-export default Main;
+export default Feelings;
