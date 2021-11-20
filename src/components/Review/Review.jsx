@@ -3,7 +3,7 @@ import {useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from "react";
 import Header from '../Header/Header';
 import { Container, Grid, Card, CardContent, TextField, 
-         Typography, Button, Box } from '@mui/material';
+         Typography, Button, Box, TextareaAutosize } from '@mui/material';
 //BEGIN TESTING FOR LIST
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -14,6 +14,7 @@ import StarIcon from '@mui/icons-material/Star';
 //END TESTING FOR LIST
 import { Link } from 'react-router-dom';
 import GlobalCSS from '../GlobalCSS/GlobalCSS'
+import { fontFamily } from "@mui/system";
 
 function Review( props ) {
     //reducer
@@ -22,9 +23,9 @@ function Review( props ) {
     const feedback = useSelector( store => store.feedback );
     const globalClasses = GlobalCSS();
 
-    let feelingsStars,
-          understandingStars,
-          supportStars = 0;
+    let feelingsRating,
+          understandingRating,
+          supportRating = 0;
     let comments = '';
 
     for( let i = 0; i < feedback.length; i ++ ) {
@@ -33,15 +34,17 @@ function Review( props ) {
         //value feeling/understanding/support 
         let key = Object.keys(feedback[i])[0];
         let value = Object.values(feedback[i])[0];   
+        
         switch ( key ) {
             case 'feelings':
-                feelingsStars = value;
+                feelingsRating = value;
             case 'understanding':
-                understandingStars = value;
+                understandingRating = value;
             case 'support':
-                supportStars = value;
+                supportRating = value;
             case 'comments':
                 comments = value;
+                console.log( `comments are:`, comments );
             default:
                 //nothing since we already set default to 0 above
         }
@@ -56,7 +59,7 @@ function Review( props ) {
 
     return (
         <div>
-            <p>{JSON.stringify( feedback )}</p>
+            {/* <p>{JSON.stringify( feedback )}</p> */}
             <Header />
             <body>        
                 <Container>
@@ -68,47 +71,55 @@ function Review( props ) {
                     <Grid item xs={12}>
                     <Card className={globalClasses.reviewCard}>
                         <CardContent>
-                            <Typography className={globalClasses.question}>
+                            <Typography className={globalClasses.question}
+                                        sx={{ fontSize: 30}}>
                                 Review Your Feedback
                             </Typography>
 
-{/** Enter a grid of sorts here to display the values entered by the user */}
-<List
-      sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-      aria-label="feedback"
-    >
-      <ListItem disablePadding alignItems="center">
-        <ListItemButton>
-          <ListItemText primary="Feelings" 
-          sx={{border:1 }}/>
-          <ListItemIcon sx={{border:1 }}>
-            { createStarIcons( feelingsStars )}
-          </ListItemIcon>
-        </ListItemButton>
-      </ListItem>
-      <ListItem disablePadding>
-        <ListItemButton>
-          <ListItemText primary="Understanding" sx={{border:1 }}/>
-          <ListItemIcon sx={{border:1 }}>
-            { createStarIcons( understandingStars )}
-          </ListItemIcon>
-        </ListItemButton>
-      </ListItem>
-      <ListItem disablePadding>
-        <ListItemButton>
-          <ListItemText primary="Support" sx={{border:1 }}/>
-          <ListItemIcon sx={{border:1 }}>
-            { createStarIcons( supportStars )}
-          </ListItemIcon>
-        </ListItemButton>
-      </ListItem>
-      <ListItem disablePadding>
-        <ListItemButton>
-          <ListItemText primary="Comments" sx={{border:1 }}/>
-          <ListItemText sx={{border:1 }}>Hello</ListItemText>
-        </ListItemButton>
-      </ListItem>            
-    </List>
+                            {/** Enter a grid of sorts here to display the values entered by the user */}
+                            <List sx={{ width: '100%', maxWidth: 675, alignItems: "center", bgcolor: 'background.paper' }}>
+                                <ListItem  alignItems="center">
+                                    <ListItemText primary="Feelings:" 
+                                                  disableTypography='true'
+                                                  className={globalClasses.listItemText}
+                                                  sx={{border:1 }}/>
+                                    <ListItemIcon sx={{border:1 }}>
+                                        { createStarIcons( feelingsRating )}
+                                    </ListItemIcon>
+                                </ListItem>
+                                <ListItem >
+                                    <ListItemText primary="Understanding:" 
+                                                  disableTypography='true'
+                                                  className={globalClasses.listItemText}
+                                                  sx={{border:1 }}/>
+                                    <ListItemIcon sx={{border:1 }}>
+                                        { createStarIcons( understandingRating )}
+                                    </ListItemIcon>
+                                </ListItem>
+                                <ListItem >
+                                    <ListItemText primary="Support:" 
+                                                  disableTypography='true'
+                                                  className={globalClasses.listItemText}
+                                                  sx={{border:1 }}/>
+                                    <ListItemIcon sx={{border:1 }}>
+                                        { createStarIcons( supportRating )}
+                                    </ListItemIcon>
+                                </ListItem>
+                                <ListItem >
+                                    <ListItemText primary="Comments:" 
+                                                  disableTypography='true'
+                                                  className={globalClasses.listItemText}
+                                                  sx={{border:1 }}/>
+                                    <ListItemText 
+                                        // primaryTypographyProps={{ color: 'red',
+                                        //                           fontSize: 20 }}
+                                        disableTypography='true'
+                                        className={globalClasses.listItemText}
+                                        sx={{border:1,textAlign: "end"}}>
+                                            {comments}
+                                    </ListItemText>
+                                </ListItem>            
+                                </List>
 {/** Buttons to display */}
                             <Box sx={{
                                 display: 'flex',
@@ -124,7 +135,7 @@ function Review( props ) {
                                         mt:3,
                                         mr: 5
                                     }}>
-                                    <Link className={globalClasses.link} to="/support">Back</Link>
+                                    <Link className={globalClasses.link} to="/comments">Back</Link>
                                 </Button>  
                                 <Button 
                                     variant="contained" 

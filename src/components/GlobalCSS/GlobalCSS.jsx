@@ -17,13 +17,16 @@ const GlobalCSS = makeStyles((theme) => ({
     boxShadow: 10
   },
   reviewCard:{
-    height: 375,
+    height: 475,
     width: 700,
     boxShadow: 10
   },
   link:{
     color:'inherit',
     textDecoration: 'inherit',
+  },
+  listItemText: {
+    fontSize: 20
   }
 }));
 
