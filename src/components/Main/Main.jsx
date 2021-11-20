@@ -26,7 +26,7 @@ function Main( props ) {
                     <Grid item xs={12}>
                     <Card className={globalClasses.card}>
                         <CardContent >
-                        <Typography className={globalClasses.question}>
+                        <Typography sx={{fontSize: '30px', mt: 3}} className={globalClasses.question}>
                             Tell me about your learning experience today.
                         </Typography>
                         <Box className={globalClasses.box}>
@@ -37,7 +37,7 @@ function Main( props ) {
                             sx={{
                                 height: 60,
                                 width: 90,
-                                mt:5
+                                mt:7
                                 // backgroundColor: "#826AED"
                             }}>
                             <Link className={globalClasses.link} to="/feelings">Start</Link>

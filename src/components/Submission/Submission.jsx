@@ -33,7 +33,7 @@ function Submission( props ) {
                                 fontSize: '30px'
                                 }}
                             >
-                                Review Your Feedback
+                                Feedback Received!
                             </Typography>
                             <Box sx={{
                                 display: 'flex',
@@ -52,22 +52,10 @@ function Submission( props ) {
                                     size="large"
                                     sx={{
                                         height: 60,
-                                        width: 90,
-                                        mt:3,
-                                        mr: 5
+                                        width: 210,
+                                        mt:5
                                     }}>
-                                    <Link className={globalClasses.link} to="/support">Back</Link>
-                                </Button>  
-                                <Button 
-                                    variant="contained" 
-                                    size="large"
-                                    sx={{
-                                        height: 60,
-                                        width: 90,
-                                        mt:3,
-                                        mr: 5
-                                    }}>
-                                    <Link className={globalClasses.link} to="/submission">Submit</Link>
+                                    <Link className={globalClasses.link} to="/">Leave New Feedback</Link>
                                 </Button>    
                             </Box>     
                         </CardContent>

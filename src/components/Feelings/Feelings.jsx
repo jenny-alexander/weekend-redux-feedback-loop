@@ -4,12 +4,13 @@ import { useState, useEffect } from "react";
 import Header from '../Header/Header';
 import { Container, Grid, Card, CardContent, Rating, Typography, Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
-import GlobalCSS from '../GlobalCSS/GlobalCSS'
+import GlobalCSS from '../GlobalCSS/GlobalCSS';
+import StarIcon from '@mui/icons-material/Star';
 
 function Feelings( props ) {
     //reducer
     const dispatch = useDispatch();
-    const [ feelings, setFeelings ] = useState( 2 );
+    const [ feelings, setFeelings ] = useState( 0 );
 
     const globalClasses = GlobalCSS();
 
@@ -34,7 +35,7 @@ function Feelings( props ) {
                     <Grid item xs={12}>
                     <Card className={globalClasses.card}>
                         <CardContent>
-                            <Typography className={globalClasses.question}>
+                            <Typography sx={{fontSize: '30px', mt:3 }} className={globalClasses.question}>
                                 How are you feeling today?
                             </Typography>
                             <Box
@@ -49,10 +50,11 @@ function Feelings( props ) {
                                     size="large"
                                     value={feelings}
                                     onChange={(event, newValue) => {
-                                    setFeelings(newValue);
+                                        setFeelings(newValue);
                                     }}
                                 />
                             </Box>
+
                             <Box sx={{
                                 display: 'flex',
                                 alignItems: 'center',

@@ -2,7 +2,6 @@ import { makeStyles } from '@mui/styles';
 
 const GlobalCSS = makeStyles((theme) => ({
   question:{
-    p: 2,
     textAlign: 'center',
     fontSize: '30px'
   },
@@ -13,20 +12,20 @@ const GlobalCSS = makeStyles((theme) => ({
   },
   card:{
     height: 275,
-    width: 700,
-    boxShadow: 10
+    width: 650,
   },
   reviewCard:{
-    height: 475,
-    width: 700,
-    boxShadow: 10
+    height: 450,
+    width: 650
   },
   link:{
     color:'inherit',
     textDecoration: 'inherit',
   },
   listItemText: {
-    fontSize: 20
+    fontSize: 20,
+    textAlign: 'end',
+    paddingRight: 5
   }
 }));
 

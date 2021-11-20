@@ -9,7 +9,7 @@ import GlobalCSS from '../GlobalCSS/GlobalCSS'
 function Support( props ) {
     const dispatch = useDispatch();
     const globalClasses = GlobalCSS();
-    const [ support, setSupport ] = useState( 2 );
+    const [ support, setSupport ] = useState( 0 );
     const [hover, setHover] = useState(-1);
 
     const labels = {
@@ -31,7 +31,7 @@ function Support( props ) {
                     <Grid item xs={12}>
                     <Card className={globalClasses.card}>
                         <CardContent>
-                            <Typography className={globalClasses.question}>
+                            <Typography sx={{fontSize: '30px', mt:3 }} className={globalClasses.question}>
                                 How well are you being supported?
                             </Typography>
                             <Box sx={{

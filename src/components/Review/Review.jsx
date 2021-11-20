@@ -52,22 +52,19 @@ function Review( props ) {
     const createStarIcons=( number )=>{
         let icons = [];
         for ( let i = 0; i < number; i++ ) {
-            icons.push(<StarIcon/>)
+            icons.push(<StarIcon sx={{ color: '#EBC51B' }}/>)
         }
         return icons;
     }
 
     return (
         <div>
-            {/* <p>{JSON.stringify( feedback )}</p> */}
             <Header />
             <body>        
                 <Container>
-                <Grid 
-                    container 
-                    direction='column'
-                    alignItems= 'center'            
-                >
+                <Grid container 
+                      direction='column'
+                      alignItems= 'center'>
                     <Grid item xs={12}>
                     <Card className={globalClasses.reviewCard}>
                         <CardContent>
@@ -75,66 +72,47 @@ function Review( props ) {
                                         sx={{ fontSize: 30}}>
                                 Review Your Feedback
                             </Typography>
-
-                            {/** Enter a grid of sorts here to display the values entered by the user */}
-                            <List sx={{ width: '100%', maxWidth: 675, alignItems: "center", bgcolor: 'background.paper' }}>
-                                <ListItem  alignItems="center">
-                                    <ListItemText primary="Feelings:" 
-                                                  disableTypography='true'
-                                                  className={globalClasses.listItemText}
-                                                  sx={{border:1 }}/>
-                                    <ListItemIcon sx={{border:1 }}>
-                                        { createStarIcons( feelingsRating )}
-                                    </ListItemIcon>
-                                </ListItem>
-                                <ListItem >
-                                    <ListItemText primary="Understanding:" 
-                                                  disableTypography='true'
-                                                  className={globalClasses.listItemText}
-                                                  sx={{border:1 }}/>
-                                    <ListItemIcon sx={{border:1 }}>
-                                        { createStarIcons( understandingRating )}
-                                    </ListItemIcon>
-                                </ListItem>
-                                <ListItem >
-                                    <ListItemText primary="Support:" 
-                                                  disableTypography='true'
-                                                  className={globalClasses.listItemText}
-                                                  sx={{border:1 }}/>
-                                    <ListItemIcon sx={{border:1 }}>
-                                        { createStarIcons( supportRating )}
-                                    </ListItemIcon>
-                                </ListItem>
-                                <ListItem >
-                                    <ListItemText primary="Comments:" 
-                                                  disableTypography='true'
-                                                  className={globalClasses.listItemText}
-                                                  sx={{border:1 }}/>
-                                    <ListItemText 
-                                        // primaryTypographyProps={{ color: 'red',
-                                        //                           fontSize: 20 }}
-                                        disableTypography='true'
-                                        className={globalClasses.listItemText}
-                                        sx={{border:1,textAlign: "end"}}>
-                                            {comments}
-                                    </ListItemText>
-                                </ListItem>            
-                                </List>
-{/** Buttons to display */}
+                                 <List sx={{ maxWidth: 650, bgcolor: 'background.paper' }}>
+                                    <ListItem>
+                                        <ListItemText primary="Feelings:" 
+                                                      disableTypography='true'
+                                                      className={globalClasses.listItemText}/>
+                                        <ListItemIcon sx={{minWidth: 300 }}>
+                                            { createStarIcons( feelingsRating )}
+                                        </ListItemIcon>
+                                    </ListItem>
+                                    <ListItem >
+                                        <ListItemText primary="Understanding:" 
+                                                      disableTypography='true'
+                                                      className={globalClasses.listItemText}/>
+                                        <ListItemIcon sx={{ minWidth: 300 }}>
+                                            { createStarIcons( understandingRating )}
+                                        </ListItemIcon>
+                                    </ListItem>
+                                    <ListItem >
+                                        <ListItemText primary="Support:" 
+                                                      disableTypography='true'
+                                                      className={globalClasses.listItemText}/>
+                                        <ListItemIcon sx={{minWidth: 300 }}>
+                                            { createStarIcons( supportRating )}
+                                        </ListItemIcon>
+                                    </ListItem>
+                                </List> 
+                                <Grid justifyContent="left" item xs zeroMinWidth>
+                                    <h4 sx={{ marginTop: 0, textAlign: "left" }}>Comments:</h4>
+                                    <p sx={{ textAlign: "left"}}>{comments}</p>
+                                </Grid>
                             <Box sx={{
                                 display: 'flex',
                                 alignItems: 'center',
-                                justifyContent: 'center'                              
-                                }}>
+                                justifyContent: 'center'}}>
                                 <Button 
                                     variant="contained" 
                                     size="large"
                                     sx={{
                                         height: 60,
                                         width: 90,
-                                        mt:3,
-                                        mr: 5
-                                    }}>
+                                        m:3}}>
                                     <Link className={globalClasses.link} to="/comments">Back</Link>
                                 </Button>  
                                 <Button 
@@ -143,9 +121,7 @@ function Review( props ) {
                                     sx={{
                                         height: 60,
                                         width: 90,
-                                        mt:3,
-                                        mr: 5
-                                    }}>
+                                        m:3}}>
                                     <Link className={globalClasses.link} to="/submission">Submit</Link>
                                 </Button>    
                             </Box>     

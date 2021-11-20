@@ -9,7 +9,7 @@ import GlobalCSS from '../GlobalCSS/GlobalCSS'
 function Understanding( props ) {
     const dispatch = useDispatch();
     const globalClasses = GlobalCSS();
-    const [ understanding, setUnderstanding ] = useState( 2 );
+    const [ understanding, setUnderstanding ] = useState( 0 );
 
     const labels = {
         1: 'Horrible',
@@ -32,7 +32,7 @@ function Understanding( props ) {
                     <Grid item xs={12}>
                     <Card className={globalClasses.card}>
                         <CardContent>
-                            <Typography className={globalClasses.question}>
+                            <Typography sx={{fontSize: '30px', mt:3 }} className={globalClasses.question}>
                                 How well are you understanding the content?
                             </Typography>
                             <Box

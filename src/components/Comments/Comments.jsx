@@ -29,12 +29,7 @@ function Comments( props ) {
                     alignItems= 'center'            
                 >
                     <Grid item xs={12}>
-                    <Card 
-                        sx={{
-                        height: 275,
-                        width: 700
-                        }}
-                    >
+                    <Card className={globalClasses.card}>
                         <CardContent>
                             <Typography 
                                 sx={{
@@ -53,7 +48,7 @@ function Comments( props ) {
                                 <TextField
                                     aria-label="empty textarea"
                                     placeholder="Share your thoughts here..."
-                                    style={{ width: 450,
+                                    style={{ width: 600,
                                              fontSize: 17,
                                              fontFamily:'Roboto'}}
                                     align="center"
