@@ -1,20 +1,21 @@
+header {
+  text-align: center;
+}
 .App-header {
-    background-color: #eaeff9d0;
+    background-color: #F2F4F3;
     min-height: 50px;
-    padding: 20px;
-    margin-bottom: 10px;
   }
-  
+
   .App-title {
-    font-size: 2em;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Comfortaa', cursive;
+    font-size: 4em;
     font-weight: 500;
+    text-shadow: 2px 2px 0px #5b6894cb;
+    text-transform: uppercase;
   } 
-  
+/*   
   .App-subtitle {
-    font-size: 2em;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
     font-weight: 200
-  } 
+  }  */

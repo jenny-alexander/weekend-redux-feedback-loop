@@ -2,24 +2,21 @@ import react from "react";
 import {useDispatch } from 'react-redux';
 import { useState, useEffect } from "react";
 import Header from '../Header/Header';
-import { Container, Grid, Card, CardContent, Rating, Typography, Button, Box } from '@mui/material';
+import { Container, Grid, Card, CardContent, TextField, 
+         Typography, Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 import GlobalCSS from '../GlobalCSS/GlobalCSS'
 
-function Feelings( props ) {
+function Comments( props ) {
     //reducer
     const dispatch = useDispatch();
-    const [ feelings, setFeelings ] = useState( 2 );
-
+    const [ comments, setComments ] = useState( '' );
     const globalClasses = GlobalCSS();
 
-    const labels = {
-        1: 'Horrible',
-        2: 'Poor',
-        3: 'Ok',
-        4: 'Good',
-        5: 'Excellent',
-      };
+    const handleChange = ( event )=> {
+        setComments( event.target.value )
+        console.log( `comments are:`, comments );
+    }
 
     return (
         <div>
@@ -32,25 +29,35 @@ function Feelings( props ) {
                     alignItems= 'center'            
                 >
                     <Grid item xs={12}>
-                    <Card className={globalClasses.card}>
+                    <Card 
+                        sx={{
+                        height: 275,
+                        width: 700
+                        }}
+                    >
                         <CardContent>
-                            <Typography className={globalClasses.question}>
-                                How are you feeling today?
-                            </Typography>
-                            <Box
+                            <Typography 
                                 sx={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
+                                p:2,
+                                textAlign: 'center',
+                                fontSize: '30px'
                                 }}
-                                >
-                                <Rating
-                                    name="simple-controlled"
-                                    size="large"
-                                    value={feelings}
-                                    onChange={(event, newValue) => {
-                                    setFeelings(newValue);
-                                    }}
+                            >
+                                Any comments you'd like to leave?
+                            </Typography>
+                            <Box sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center'                              
+                                }}>
+                                <TextField
+                                    aria-label="empty textarea"
+                                    placeholder="Share your thoughts here..."
+                                    style={{ width: 450,
+                                             fontSize: 17,
+                                             fontFamily:'Roboto'}}
+                                    align="center"
+                                    onChange={ ( event ) => handleChange( event )}
                                 />
                             </Box>
                             <Box sx={{
@@ -64,22 +71,22 @@ function Feelings( props ) {
                                 sx={{
                                     height: 60,
                                     width: 90,
-                                    mt:5,
+                                    mt:3,
                                     mr: 5
                                 }}>
-                                <Link className={globalClasses.link} to="/">Back</Link>
+                                <Link className={globalClasses.link} to="/support">Back</Link>
                                 </Button>    
 
                                 <Button 
                                 variant="contained" 
                                 size="large"
-                                onClick={ ()=>dispatch( { type: 'SET_FEELINGS', payload: { feelings } } ) }
+                                onClick={ ()=>dispatch( { type: 'SET_COMMENTS', payload: { comments } } ) }
                                 sx={{
                                     height: 60,
                                     width: 90,
-                                    mt:5
+                                    mt:3
                                 }}>
-                                <Link className={globalClasses.link} to="/understanding">Next</Link>
+                                <Link className={globalClasses.link} to="/review">Next</Link>
                                 </Button>
                             </Box>     
                         </CardContent>
@@ -92,4 +99,4 @@ function Feelings( props ) {
     )
 }
 
-export default Feelings;
+export default Comments;

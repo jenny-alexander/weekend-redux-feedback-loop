@@ -1,17 +1,15 @@
 import react from "react";
-import {useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState, useEffect } from "react";
 import Header from '../Header/Header';
 import { Container, Grid, Card, CardContent, Rating, Typography, Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 import GlobalCSS from '../GlobalCSS/GlobalCSS'
 
-function Feelings( props ) {
-    //reducer
+function Understanding( props ) {
     const dispatch = useDispatch();
-    const [ feelings, setFeelings ] = useState( 2 );
-
     const globalClasses = GlobalCSS();
+    const [ understanding, setUnderstanding ] = useState( 2 );
 
     const labels = {
         1: 'Horrible',
@@ -35,7 +33,7 @@ function Feelings( props ) {
                     <Card className={globalClasses.card}>
                         <CardContent>
                             <Typography className={globalClasses.question}>
-                                How are you feeling today?
+                                How well are you understanding the content?
                             </Typography>
                             <Box
                                 sx={{
@@ -47,10 +45,9 @@ function Feelings( props ) {
                                 <Rating
                                     name="simple-controlled"
                                     size="large"
-                                    value={feelings}
+                                    value={understanding}
                                     onChange={(event, newValue) => {
-                                    setFeelings(newValue);
-                                    }}
+                                        setUnderstanding(newValue); } }
                                 />
                             </Box>
                             <Box sx={{
@@ -67,19 +64,18 @@ function Feelings( props ) {
                                     mt:5,
                                     mr: 5
                                 }}>
-                                <Link className={globalClasses.link} to="/">Back</Link>
+                                <Link className={globalClasses.link} to="/feelings">Back</Link>
                                 </Button>    
 
                                 <Button 
                                 variant="contained" 
                                 size="large"
-                                onClick={ ()=>dispatch( { type: 'SET_FEELINGS', payload: { feelings } } ) }
+                                onClick={ ()=>dispatch( { type: 'SET_UNDERSTANDING', payload: { understanding } } ) }
                                 sx={{
                                     height: 60,
                                     width: 90,
                                     mt:5
-                                }}>
-                                <Link className={globalClasses.link} to="/understanding">Next</Link>
+                                }}><Link className={globalClasses.link} to="/support">Next</Link>
                                 </Button>
                             </Box>     
                         </CardContent>
@@ -92,4 +88,4 @@ function Feelings( props ) {
     )
 }
 
-export default Feelings;
+export default Understanding;

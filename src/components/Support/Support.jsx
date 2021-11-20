@@ -6,12 +6,11 @@ import { Container, Grid, Card, CardContent, Rating, Typography, Button, Box } f
 import { Link } from 'react-router-dom';
 import GlobalCSS from '../GlobalCSS/GlobalCSS'
 
-function Feelings( props ) {
-    //reducer
+function Support( props ) {
     const dispatch = useDispatch();
-    const [ feelings, setFeelings ] = useState( 2 );
-
     const globalClasses = GlobalCSS();
+    const [ support, setSupport ] = useState( 2 );
+    const [hover, setHover] = useState(-1);
 
     const labels = {
         1: 'Horrible',
@@ -26,61 +25,55 @@ function Feelings( props ) {
             <Header />
             <body>        
                 <Container>
-                <Grid 
-                    container 
+                <Grid container 
                     direction="column" 
-                    alignItems= 'center'            
-                >
+                    alignItems= 'center'>
                     <Grid item xs={12}>
                     <Card className={globalClasses.card}>
                         <CardContent>
                             <Typography className={globalClasses.question}>
-                                How are you feeling today?
+                                How well are you being supported?
                             </Typography>
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }}
-                                >
-                                <Rating
-                                    name="simple-controlled"
-                                    size="large"
-                                    value={feelings}
-                                    onChange={(event, newValue) => {
-                                    setFeelings(newValue);
-                                    }}
-                                />
-                            </Box>
                             <Box sx={{
                                 display: 'flex',
                                 alignItems: 'center',
-                                justifyContent: 'center'                              
-                                }}>
-                                <Button 
-                                variant="contained" 
-                                size="large"
+                                justifyContent: 'center'}}>
+                                <Rating
+                                    name="simple-controlled"
+                                    size="large"
+                                    value={support}
+                                    precision={1}
+                                    onChange={ ( event, newValue ) => { setSupport( newValue ) } } />
+                            </Box>
+                            <Box
                                 sx={{
-                                    height: 60,
-                                    width: 90,
-                                    mt:5,
-                                    mr: 5
-                                }}>
-                                <Link className={globalClasses.link} to="/">Back</Link>
-                                </Button>    
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center'                              
+                                }}
+                            >
+                            <Button 
+                            variant="contained" 
+                            size="large"
+                            sx={{
+                                height: 60,
+                                width: 90,
+                                mt:5,
+                                mr: 5
+                            }}>
+                            <Link className={globalClasses.link} to="/understanding" style={{ textDecoration: 'none' }}>Back</Link>
+                            </Button>    
 
                                 <Button 
                                 variant="contained" 
                                 size="large"
-                                onClick={ ()=>dispatch( { type: 'SET_FEELINGS', payload: { feelings } } ) }
+                                onClick={ ()=>dispatch( { type: 'SET_SUPPORT', payload: { support } } ) }
                                 sx={{
                                     height: 60,
                                     width: 90,
                                     mt:5
                                 }}>
-                                <Link className={globalClasses.link} to="/understanding">Next</Link>
-                                </Button>
+                                <Link className={globalClasses.link} to="/comments" style={{ textDecoration: 'none' }}>Next</Link></Button>
                             </Box>     
                         </CardContent>
                     </Card>
@@ -92,4 +85,4 @@ function Feelings( props ) {
     )
 }
 
-export default Feelings;
+export default Support;
