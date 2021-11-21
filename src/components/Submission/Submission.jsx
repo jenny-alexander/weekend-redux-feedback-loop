@@ -18,50 +18,26 @@ function Submission( props ) {
             <Header />
             <body>        
                 <Container>
-                <Grid 
-                    container 
-                    direction="column" 
-                    alignItems= 'center'            
-                >
-                    <Grid item xs={12}>
-                    <Card className={globalClasses.card}>
-                        <CardContent>
-                            <Typography 
-                                sx={{
-                                p:2,
-                                textAlign: 'center',
-                                fontSize: '30px'
-                                }}
-                            >
-                                Feedback Received!
-                            </Typography>
-                            <Box sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center'                              
-                                }}>
-{/** Enter a grid of sorts here to display the values entered by the user */}
-                            </Box>
-                            <Box sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center'                              
-                                }}>
-                                <Button 
-                                    variant="contained" 
-                                    size="large"
-                                    sx={{
-                                        height: 60,
-                                        width: 210,
-                                        mt:5
-                                    }}>
-                                    <Link className={globalClasses.link} to="/">Leave New Feedback</Link>
-                                </Button>    
-                            </Box>     
-                        </CardContent>
-                    </Card>
+                    <Grid container 
+                        direction="column" 
+                        alignItems= 'center'>
+                        <Grid item xs={12}>
+                            <Card className={globalClasses.card}>
+                                <CardContent>
+                                    <Typography sx={{ p:2, textAlign: 'center', fontSize: '30px' }} >
+                                        Feedback Received!
+                                    </Typography>                            
+                                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                        <Button variant="contained" 
+                                                size="large"
+                                                sx={{ height: 60, width: 210, mt:5 }}>
+                                            <Link className={globalClasses.link} to="/">Leave New Feedback</Link>
+                                        </Button>    
+                                    </Box>     
+                                </CardContent>
+                            </Card>
+                        </Grid>
                     </Grid>
-                </Grid>
                 </Container>
             </body>
         </div>

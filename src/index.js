@@ -7,22 +7,32 @@ import {Provider} from 'react-redux';
 import logger from 'redux-logger';
 import registerServiceWorker from './registerServiceWorker';
 
-//feedback reducer
-const feedback = ( state = [], action ) =>{
-    console.log( `Hello from the store reducer! Action type:`, action.type )
-    console.log( `Payload is:`, action.payload );
-
-
-    if( action.type === 'SET_FEELINGS' ) {
-        return[...state, action.payload ];
-    }else if ( action.type === 'SET_UNDERSTANDING' ) {
-        return[ ...state, action.payload ];
-    } else if ( action.type === 'SET_SUPPORT' ) {
-        return[ ...state, action.payload ];
-    } else if ( action.type === 'SET_COMMENTS' ) {
-        return [ ...state, action.payload ];
+//feeling reducer
+const feeling = ( state = [], action ) =>{
+    if( action.type === 'ADD_FEELING' ) {
+        return action.payload;
     }
-    console.log( `State is:`, state );
+    return state;
+}
+//understanding reducer
+const understanding = ( state = [], action ) =>{
+    if( action.type === 'ADD_UNDERSTANDING' ) {
+        return action.payload;
+    }
+    return state;
+}
+//support reducer
+const support = ( state = [], action ) =>{
+    if( action.type === 'ADD_SUPPORT' ) {
+        return action.payload;
+    }
+    return state;
+}
+//comments reducer
+const comments = ( state = [], action ) =>{
+    if( action.type === 'ADD_COMMENTS' ) {
+        return action.payload;
+    }
     return state;
 }
 
@@ -30,7 +40,10 @@ const feedback = ( state = [], action ) =>{
 const storeInstance = createStore (
     combineReducers(
         {
-            feedback
+            feeling,
+            understanding,
+            support,
+            comments
         }
     ),
     applyMiddleware(

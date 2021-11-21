@@ -10,75 +10,43 @@ function Support( props ) {
     const dispatch = useDispatch();
     const globalClasses = GlobalCSS();
     const [ support, setSupport ] = useState( 0 );
-    const [hover, setHover] = useState(-1);
-
-    const labels = {
-        1: 'Horrible',
-        2: 'Poor',
-        3: 'Ok',
-        4: 'Good',
-        5: 'Excellent',
-      };
 
     return (
         <div>
             <Header />
             <body>        
                 <Container>
-                <Grid container 
-                    direction="column" 
-                    alignItems= 'center'>
-                    <Grid item xs={12}>
-                    <Card className={globalClasses.card}>
-                        <CardContent>
-                            <Typography sx={{fontSize: '30px', mt:3 }} className={globalClasses.question}>
-                                How well are you being supported?
-                            </Typography>
-                            <Box sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center'}}>
-                                <Rating
-                                    name="simple-controlled"
-                                    size="large"
-                                    value={support}
-                                    precision={1}
-                                    onChange={ ( event, newValue ) => { setSupport( newValue ) } } />
-                            </Box>
-                            <Box
-                                sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center'                              
-                                }}
-                            >
-                            <Button 
-                            variant="contained" 
-                            size="large"
-                            sx={{
-                                height: 60,
-                                width: 90,
-                                mt:5,
-                                mr: 5
-                            }}>
-                            <Link className={globalClasses.link} to="/understanding" style={{ textDecoration: 'none' }}>Back</Link>
-                            </Button>    
-
-                                <Button 
-                                variant="contained" 
-                                size="large"
-                                onClick={ ()=>dispatch( { type: 'SET_SUPPORT', payload: { support } } ) }
-                                sx={{
-                                    height: 60,
-                                    width: 90,
-                                    mt:5
-                                }}>
-                                <Link className={globalClasses.link} to="/comments" style={{ textDecoration: 'none' }}>Next</Link></Button>
-                            </Box>     
-                        </CardContent>
-                    </Card>
+                    <Grid container 
+                        direction="column" 
+                        alignItems= 'center'>
+                        <Grid item xs={12}>
+                            <Card className={globalClasses.card}>
+                                <CardContent>
+                                    <Typography sx={{fontSize: '30px', mt:3 }} className={globalClasses.question}>
+                                        How well are you being supported?
+                                    </Typography>
+                                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                                        <Rating name="simple-controlled"
+                                                size="large"
+                                                value={support}
+                                                precision={1}
+                                                onChange={ ( event, newValue ) => { setSupport( newValue ) } } />
+                                    </Box>
+                                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}} >
+                                        <Button variant="contained" size="large"
+                                                sx={{ height: 60, width: 90, mt:5, mr: 5 }}>
+                                            <Link className={globalClasses.link} to="/understanding" style={{ textDecoration: 'none' }}>Back</Link>
+                                        </Button>    
+                                        <Button variant="contained" 
+                                                size="large"
+                                                onClick={ ()=>dispatch( { type: 'ADD_SUPPORT', payload: support } ) }
+                                                sx={{ height: 60, width: 90, mt:5 }}>
+                                            <Link className={globalClasses.link} to="/comments" style={{ textDecoration: 'none' }}>Next</Link></Button>
+                                    </Box>     
+                                </CardContent>
+                            </Card>
+                        </Grid>
                     </Grid>
-                </Grid>
                 </Container>
             </body>
         </div>
