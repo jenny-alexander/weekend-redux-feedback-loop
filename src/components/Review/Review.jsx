@@ -1,6 +1,4 @@
-import react from "react";
 import {useDispatch, useSelector } from 'react-redux';
-import { useState, useEffect } from "react";
 import axios from 'axios';
 import Header from '../Header/Header';
 import { Container, Grid, Card, CardContent,

@@ -1,8 +1,7 @@
-import react from "react";
 import {useDispatch } from 'react-redux';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Header from '../Header/Header';
-import { Container, Grid, Card, CardContent, TextField, 
+import { Container, Grid, Card, CardContent, 
          Typography, Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 import GlobalCSS from '../GlobalCSS/GlobalCSS'

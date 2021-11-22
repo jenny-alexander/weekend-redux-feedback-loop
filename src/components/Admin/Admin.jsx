@@ -1,8 +1,5 @@
-import react from "react";
 import axios from 'axios';
 import { useState, useEffect } from "react";
-import Button from '@mui/material/Button';
-import Checkbox from '@mui/material/Checkbox';
 import Container from '@mui/material/Container';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -12,6 +9,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import './Admin.css';
+import Admin_Item from '../Admin_Item/Admin_Item';
 
 function Admin( props ) {
     //const[ name, setName ] = useState( null ) {
@@ -60,9 +58,10 @@ function Admin( props ) {
                     sx={{border:1}}>
                     <Table aria-label="feedback table">
                         <TableHead>
-                            <TableRow>
-                                <TableCell sx={{ minWidth: 150 }} align="center">Action</TableCell>
+                            <TableRow sx={{fontSize: 30}}>
+                                <TableCell sx={{ minWidth: 150 }} align="left">Actions</TableCell>
                                 {/* <TableCell align="left">Needs Review</TableCell> */}
+                                <TableCell align="center">Flagged for Review</TableCell>
                                 <TableCell align="right">ID</TableCell>
                                 <TableCell align="right">Feeling</TableCell>
                                 <TableCell align="right">Understanding</TableCell>
@@ -73,25 +72,7 @@ function Admin( props ) {
                         </TableHead>
                         <TableBody>
                             {feedbackList.map((row) => (
-                                <TableRow
-                                    key={row.id}
-                                    data-id={row.id}
-                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                >
-                                <TableCell align="center">
-                                    <div className='action-buttons'>
-                                        <Checkbox  />
-                                        <Button onClick={ ( ) => deleteFeedback( row.id ) }>Delete</Button>
-                                        <Button onClick={ ( ) => reviewFeedback( row ) }>Review</Button>
-                                    </div>
-                                </TableCell>
-                                <TableCell align="right">{row.id}</TableCell>
-                                <TableCell align="right">{row.feeling}</TableCell>
-                                <TableCell align="right">{row.understanding}</TableCell>
-                                <TableCell align="right">{row.support}</TableCell>
-                                <TableCell align="left">{row.comments}</TableCell>
-                                <TableCell align="left">{ new Date(row.date).toLocaleDateString()}</TableCell>
-                                </TableRow>
+                                <Admin_Item key={ row.id } feedbackItem={row} getFeedback={getFeedbackFromDB} />
                             ))}
                         </TableBody>
                     </Table>

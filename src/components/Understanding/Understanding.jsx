@@ -12,7 +12,6 @@ function Understanding( props ) {
     const [ understanding, setUnderstanding ] = useState( understandingRating );
     const globalClasses = GlobalCSS();
     
-
     return (
         <div>
             <Header />
