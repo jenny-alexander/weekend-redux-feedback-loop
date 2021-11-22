@@ -15,17 +15,19 @@ function Main( props ) {
                 <Container>
                     <Grid container direction="column" alignItems= 'center'>
                         <Grid item xs={12}>
-                            <Card className={globalClasses.card}>
+                            <Card variant="outlined" className={globalClasses.card}>
                                 <CardContent >
                                     <Typography sx={{fontSize: '30px', mt: 3}} className={globalClasses.question}>
                                         Tell me about your learning experience today.
                                     </Typography>
                                     <Box className={globalClasses.box}>
-                                        <Button variant="contained" 
-                                                size="large"                           
-                                                sx={{ height: 60, width: 90, mt:7 }}>
-                                            <Link className={globalClasses.link} to="/feeling">Start</Link>
-                                        </Button>
+                                        <Link className={globalClasses.link} to="/feeling">
+                                            <Button variant="contained" 
+                                                    size="large"                           
+                                                    sx={{ height: 60, width: 90, mt:7 }}>
+                                                Start
+                                            </Button>
+                                        </Link>
                                     </Box>     
                                 </CardContent>
                             </Card>

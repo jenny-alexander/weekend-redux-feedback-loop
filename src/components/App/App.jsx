@@ -8,6 +8,7 @@ import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 import Review from '../Review/Review';
 import Submission from '../Submission/Submission';
+import Admin from '../Admin/Admin';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
             <Route path='/comments' element ={<Comments/>}></Route>
             <Route path='/review' element ={<Review/>}></Route>
             <Route path='/submission' element ={<Submission/>}></Route>
-            {/* <Route path='/admin' element ={<Admin/>}></Route> */}
+            <Route path='/admin' element ={<Admin/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>

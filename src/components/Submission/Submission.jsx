@@ -22,17 +22,19 @@ function Submission( props ) {
                         direction="column" 
                         alignItems= 'center'>
                         <Grid item xs={12}>
-                            <Card className={globalClasses.card}>
+                            <Card variant="outlined" className={globalClasses.card}>
                                 <CardContent>
                                     <Typography sx={{ p:2, textAlign: 'center', fontSize: '30px' }} >
                                         Feedback Received!
                                     </Typography>                            
                                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                        <Button variant="contained" 
-                                                size="large"
-                                                sx={{ height: 60, width: 210, mt:5 }}>
-                                            <Link className={globalClasses.link} to="/">Leave New Feedback</Link>
-                                        </Button>    
+                                        <Link className={globalClasses.link} to="/">
+                                            <Button variant="contained" 
+                                                    size="large"
+                                                    sx={{ height: 60, width: 210, mt:5 }}>
+                                                Leave New Feedback
+                                            </Button> 
+                                        </Link>   
                                     </Box>     
                                 </CardContent>
                             </Card>

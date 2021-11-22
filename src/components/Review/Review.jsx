@@ -57,7 +57,7 @@ function Review( props ) {
                           direction='column'
                           alignItems= 'center'>
                         <Grid item xs={12}>
-                            <Card className={globalClasses.reviewCard}>
+                            <Card variant="outlined" className={globalClasses.reviewCard}>
                                 <CardContent>
                                     <Typography className={globalClasses.question}
                                                 sx={{ fontSize: 30}}>
@@ -94,17 +94,20 @@ function Review( props ) {
                                         <p sx={{ textAlign: "left"}}>{comments}</p>
                                     </Grid>
                                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                                        <Button variant="contained" 
-                                                size="large"
-                                                sx={{ height: 60, width: 90, m:3}}>
-                                            <Link className={globalClasses.link} to="/comments">Back</Link>
-                                        </Button>  
-                                        <Button variant="contained" 
-                                                size="large"
-                                                sx={{ height: 60, width: 90, m:3}}
-                                                onClick={onSubmit}>                                        
-                                            <Link className={globalClasses.link} to="/submission">Submit</Link>
-                                        </Button>    
+                                        <Link className={globalClasses.link} to="/comments">
+                                            <Button variant="contained" 
+                                                    size="large"
+                                                    sx={{ height: 60, width: 90, m:3}}>Back
+                                            </Button>  
+                                        </Link>
+                                        <Link className={globalClasses.link} to="/submission">
+                                            <Button variant="contained" 
+                                                    size="large"
+                                                    sx={{ height: 60, width: 90, m:3}}
+                                                    onClick={onSubmit}>                                        
+                                                Submit
+                                            </Button>  
+                                        </Link>  
                                     </Box>     
                                 </CardContent>
                             </Card>
