@@ -1,6 +1,5 @@
-import react from "react";
 import {useDispatch, useSelector } from 'react-redux';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Header from '../Header/Header';
 import { Container, Grid, Card, CardContent, TextField, 
          Typography, Button, Box } from '@mui/material';
@@ -38,7 +37,8 @@ function Comments( props ) {
                                                 placeholder='Share your thoughts here...'
                                                 style={{ width: 600, fontSize: 17, fontFamily:'Roboto'}}
                                                 align="center"
-                                                onChange={ ( event ) => handleChange( event )}/>
+                                                onChange={ ( event ) => handleChange( event )}
+                                                inputProps={{ maxLength: 250 }}/>
                                     </Box>
                                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                         <Link className={globalClasses.link} to="/support">
