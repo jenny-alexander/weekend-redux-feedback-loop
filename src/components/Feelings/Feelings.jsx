@@ -1,6 +1,6 @@
 import react from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Header from '../Header/Header';
 import { Container, Grid, Card, CardContent, Rating, Typography, Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';

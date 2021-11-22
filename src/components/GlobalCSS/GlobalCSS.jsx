@@ -22,10 +22,6 @@ const GlobalCSS = makeStyles((theme) => ({
     color:'inherit',
     textDecoration: 'inherit',
   },
-  button:{
-    color:'inherit',
-    textDecoration: 'inherit',
-  },
   listItemText: {
     fontSize: 20,
     textAlign: 'end',
