@@ -41,6 +41,7 @@ function Support( props ) {
                                         </Button>    
                                         <Button variant="contained" 
                                                 size="large"
+                                                disabled={ support > 0 ? false : true }
                                                 onClick={ ()=>dispatch( { type: 'ADD_SUPPORT', payload: support } ) }
                                                 sx={{ height: 60, width: 90, mt:5 }}>
                                             <Link className={globalClasses.link} to="/comments" style={{ textDecoration: 'none' }}>Next</Link></Button>

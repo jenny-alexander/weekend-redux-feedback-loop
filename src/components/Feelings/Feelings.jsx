@@ -11,22 +11,12 @@ function Feeling( props ) {
     const dispatch = useDispatch();
     const feelingRating = useSelector( store => store.feeling );
     const [ feeling, setFeeling ] = useState( feelingRating );
-    const [ goToNextPage, setGoToNextPage ] = useState( false );
     const globalClasses = GlobalCSS();
-
-    const onNextClick=()=>{
-        if ( feeling > 0 ) {
-            ()=>dispatch( { type: 'ADD_FEELING', payload: feeling } )
-            return true;
-        } else {
-            alert ('You must enter a rating!')
-            return false;
-        }
-    }
 
     return (
         <div>
             <Header />
+            <p>{JSON.stringify(feelingRating)}</p>
             <body>        
                 <Container>
                     <Grid container 
@@ -46,18 +36,21 @@ function Feeling( props ) {
                                             onChange={(event, newValue) => { setFeeling(newValue) }} />
                                 </Box>
                                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <Button variant="contained" 
-                                            size="large"
-                                            sx={{ height: 60, width: 90, mt:5, mr: 5 }}>
-                                            <Link className={globalClasses.link} to="/">Back</Link>
-                                    </Button>    
-                                    <Button variant="contained" 
-                                            size="large"
-                                            //onClick={ ()=>dispatch( { type: 'ADD_FEELING', payload: feeling } ) }
-                                            onClick={onNextClick}
-                                            sx={{ height: 60, width: 90, mt:5 }}>
-                                            <Link className={globalClasses.link} to="/understanding">Next</Link>
-                                    </Button>
+                                    <Link className={globalClasses.link} to="/">
+                                        <Button variant="contained" 
+                                                size="large"
+                                                sx={{ height: 60, width: 90, mt:5, mr: 5 }}>Back
+                                        </Button>
+                                    </Link>    
+                                    <Link className={globalClasses.link} to='/understanding'>
+                                        <Button variant="contained" 
+                                                disabled={ feeling > 0 ? false : true }
+                                                size="large"
+                                                onClick={ ()=>dispatch( { type: 'ADD_FEELING', payload: feeling } ) }
+                                                sx={{ height: 60, width: 90, mt:5 }}>
+                                                Next
+                                        </Button>
+                                    </Link>
                                 </Box>     
                             </CardContent>
                         </Card>

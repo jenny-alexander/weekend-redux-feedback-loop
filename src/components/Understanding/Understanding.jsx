@@ -41,6 +41,7 @@ function Understanding( props ) {
                                     </Button>    
                                     <Button variant="contained" 
                                             size="large"
+                                            disabled={ understanding > 0 ? false : true }
                                             onClick={ ()=>dispatch( { type: 'ADD_UNDERSTANDING', payload: understanding } ) }
                                             sx={{ height: 60, width: 90, mt:5 }}>
                                             <Link className={globalClasses.link} to="/support">Next</Link>
