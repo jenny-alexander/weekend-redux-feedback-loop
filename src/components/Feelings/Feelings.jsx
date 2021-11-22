@@ -1,5 +1,5 @@
 import react from "react";
-import {useDispatch } from 'react-redux';
+import {useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from "react";
 import Header from '../Header/Header';
 import { Container, Grid, Card, CardContent, Rating, Typography, Button, Box } from '@mui/material';
@@ -9,8 +9,20 @@ import GlobalCSS from '../GlobalCSS/GlobalCSS';
 function Feeling( props ) {
     
     const dispatch = useDispatch();
-    const [ feeling, setFeeling ] = useState( 0 );
+    const feelingRating = useSelector( store => store.feeling );
+    const [ feeling, setFeeling ] = useState( feelingRating );
+    const [ goToNextPage, setGoToNextPage ] = useState( false );
     const globalClasses = GlobalCSS();
+
+    const onNextClick=()=>{
+        if ( feeling > 0 ) {
+            ()=>dispatch( { type: 'ADD_FEELING', payload: feeling } )
+            return true;
+        } else {
+            alert ('You must enter a rating!')
+            return false;
+        }
+    }
 
     return (
         <div>
@@ -29,7 +41,8 @@ function Feeling( props ) {
                                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} >
                                     <Rating name="simple-controlled"
                                             size="large"
-                                            value={feeling}
+                                            defaultValue={1}
+                                            value={feeling}                                    
                                             onChange={(event, newValue) => { setFeeling(newValue) }} />
                                 </Box>
                                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -40,9 +53,10 @@ function Feeling( props ) {
                                     </Button>    
                                     <Button variant="contained" 
                                             size="large"
-                                            onClick={ ()=>dispatch( { type: 'ADD_FEELING', payload: feeling } ) }
+                                            //onClick={ ()=>dispatch( { type: 'ADD_FEELING', payload: feeling } ) }
+                                            onClick={onNextClick}
                                             sx={{ height: 60, width: 90, mt:5 }}>
-                                        <Link className={globalClasses.link} to="/understanding">Next</Link>
+                                            <Link className={globalClasses.link} to="/understanding">Next</Link>
                                     </Button>
                                 </Box>     
                             </CardContent>

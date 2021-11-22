@@ -1,5 +1,5 @@
 import react from "react";
-import {useDispatch } from 'react-redux';
+import {useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from "react";
 import Header from '../Header/Header';
 import { Container, Grid, Card, CardContent, TextField, 
@@ -10,7 +10,8 @@ import GlobalCSS from '../GlobalCSS/GlobalCSS'
 function Comments( props ) {
     //reducer
     const dispatch = useDispatch();
-    const [ comments, setComments ] = useState( '' );
+    const commentsFromStore = useSelector( store=>store.comments );
+    const [ comments, setComments ] = useState( commentsFromStore );
     const globalClasses = GlobalCSS();
 
     const handleChange = ( event )=> {
@@ -32,8 +33,9 @@ function Comments( props ) {
                                         Any comments you'd like to leave?
                                     </Typography>
                                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                        <TextField aria-label="empty textarea"
-                                                placeholder="Share your thoughts here..."
+                                        <TextField aria-label='empty textarea'
+                                                defaultValue={commentsFromStore}
+                                                placeholder='Share your thoughts here...'
                                                 style={{ width: 600, fontSize: 17, fontFamily:'Roboto'}}
                                                 align="center"
                                                 onChange={ ( event ) => handleChange( event )}/>

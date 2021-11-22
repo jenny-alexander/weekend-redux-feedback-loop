@@ -24,48 +24,6 @@ function Review( props ) {
 
     const globalClasses = GlobalCSS();
 
-    // useEffect(() => {
-    //     console.log(`in useEffect`)
-    //     getFeedbackFromStore();
-    // }, [])
-
-    // // let feelingsRating,
-    // //     understandingRating,
-    // //     supportRating = 0;
-    // // let comments = '';
-
-    // const getFeedbackFromStore = ()=>{
-    //     for( let i = 0; i < feedback.length; i ++ ) {
-    //         //Must be a better way to do this but running out of time
-    //         //I look at the 0 index for each object key/value since we only ever keep one
-    //         //value feeling/understanding/support 
-    //         let key = Object.keys(feedback[i])[0];
-    //         let value = Object.values(feedback[i])[0];   
-    //         console.log( `in feedback switch with feedback:`, feedback)
-    //         switch ( key ) {
-    //             case 'feelings':
-    //                 // feelingsRating = value;
-                    
-    //                 setNewFeedback( {...newFeedback, feeling: value } )
-    //                 console.log( `in feelings switch with:`, newFeedback )
-    //             case 'understanding':
-    //                 // understandingRating = value;
-    //                 setNewFeedback( {...newFeedback, understanding: value } )
-    //                 console.log( `in understanding switch with:`, newFeedback )
-    //             case 'support':
-    //                 // supportRating = value;
-    //                 setNewFeedback( {...newFeedback, support: value } )
-    //                 console.log( `in support switch with:`, newFeedback )
-    //             case 'comments':
-    //                 // comments = value;
-    //                 setNewFeedback( {...newFeedback, comments: value } )
-    //                 console.log( `in comments switch with:`, newFeedback )
-    //             default:
-    //                 //nothing since we already set default to 0 above
-    //         }
-    //     }
-    // }
-
     const createStarIcons=( number )=>{
         let icons = [];
         for ( let i = 0; i < number; i++ ) {
@@ -81,18 +39,14 @@ function Review( props ) {
             support: supportRating,
             comments: comments
         }
-        //Create the feedback object to send to the server
-        console.log( `in onSubmit with feedback:`, newFeedback );
-        axios.post( `/feedback`, newFeedback ).then( ( response )=>{
-            console.log( response )
+        axios.post( `/feedback`, newFeedback ).then( ( response )=>{ 
         }).catch( ( error )=>{
             alert( 'Error adding new task!' );
             console.log( error );
         })
         //Clear out store if axios call is successful
-        //dispatch( { type: 'EMPTY_FEEDBACK', payload: [] } );
+        dispatch( { type: 'EMPTY_FEEDBACK', payload: [] } );
     }
-
 
     return (
         <div>

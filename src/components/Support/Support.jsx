@@ -1,5 +1,5 @@
 import react from "react";
-import {useDispatch } from 'react-redux';
+import {useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from "react";
 import Header from '../Header/Header';
 import { Container, Grid, Card, CardContent, Rating, Typography, Button, Box } from '@mui/material';
@@ -8,8 +8,10 @@ import GlobalCSS from '../GlobalCSS/GlobalCSS'
 
 function Support( props ) {
     const dispatch = useDispatch();
+    const supportRating = useSelector( store=>store.support );
+    const [ support, setSupport ] = useState( supportRating );
     const globalClasses = GlobalCSS();
-    const [ support, setSupport ] = useState( 0 );
+    
 
     return (
         <div>
@@ -28,7 +30,7 @@ function Support( props ) {
                                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                                         <Rating name="simple-controlled"
                                                 size="large"
-                                                value={support}
+                                                value={ support }
                                                 precision={1}
                                                 onChange={ ( event, newValue ) => { setSupport( newValue ) } } />
                                     </Box>

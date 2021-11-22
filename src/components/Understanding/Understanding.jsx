@@ -1,5 +1,5 @@
 import react from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from "react";
 import Header from '../Header/Header';
 import { Container, Grid, Card, CardContent, Rating, Typography, Button, Box } from '@mui/material';
@@ -8,8 +8,10 @@ import GlobalCSS from '../GlobalCSS/GlobalCSS'
 
 function Understanding( props ) {
     const dispatch = useDispatch();
+    const understandingRating = useSelector( store => store.understanding );
+    const [ understanding, setUnderstanding ] = useState( understandingRating );
     const globalClasses = GlobalCSS();
-    const [ understanding, setUnderstanding ] = useState( 0 );
+    
 
     return (
         <div>
