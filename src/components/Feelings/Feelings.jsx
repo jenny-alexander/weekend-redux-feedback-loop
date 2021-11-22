@@ -22,7 +22,7 @@ function Feeling( props ) {
                           direction="column" 
                           alignItems= 'center'>
                         <Grid item xs={12}>
-                        <Card className={globalClasses.card}>
+                        <Card variant="outlined" className={globalClasses.card}>
                             <CardContent>
                                 <Typography sx={{fontSize: '30px', mt:3 }} className={globalClasses.question}>
                                     How are you feeling today?

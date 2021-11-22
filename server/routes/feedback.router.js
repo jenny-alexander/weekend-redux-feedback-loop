@@ -28,4 +28,30 @@ router.post('/', ( req, res )=>{
         res.sendStatus( 500 );
     })
 });
+
+//DELETE Route
+router.delete('/delete/:id', ( req, res )=>{
+    console.log(`DELETE fired on server with req.params :`, req.params )
+    const queryString = `DELETE FROM feedback WHERE id='${req.params.id}';`;
+    pool.query( queryString ).then( ( result )=>{
+        res.sendStatus( 200 );
+    }).catch( ( error )=>{
+        console.log( `DELETE error is:`, error );
+        res.sendStatus( 500 );
+    })
+})
+
+//PUT Route for updating review flag
+router.put( '/flagged/:id', ( req, res )=>{
+    console.log(`in PUT of flagged with:`, req.body);
+    const queryString = `UPDATE feedback SET flagged = ${req.body.flagged}
+                         WHERE id = ${req.params.id};`;
+    pool.query( queryString ).then( ( results )=>{
+        res.sendStatus( 200 );
+    }).catch( ( error )=>{
+        console.log( `PUT error is:`, error );
+        res.sendStatus( 500 );
+    })
+})
+
 module.exports = router;

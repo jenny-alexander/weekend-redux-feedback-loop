@@ -27,7 +27,7 @@ function Comments( props ) {
                         direction="column" 
                         alignItems= 'center'>
                         <Grid item xs={12}>
-                            <Card className={globalClasses.card}>
+                            <Card variant="outlined" className={globalClasses.card}>
                                 <CardContent>
                                     <Typography sx={{ p:2, textAlign: 'center', fontSize: '30px' }}>
                                         Any comments you'd like to leave?
@@ -41,17 +41,19 @@ function Comments( props ) {
                                                 onChange={ ( event ) => handleChange( event )}/>
                                     </Box>
                                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                        <Button variant="contained" 
-                                                size="large"
-                                                sx={{ height: 60, width: 90, mt:3, mr: 5 }}>
-                                        <Link className={globalClasses.link} to="/support">Back</Link>
-                                        </Button>    
-                                        <Button variant="contained" 
-                                                size="large" 
-                                                onClick={ ()=>dispatch( { type: 'ADD_COMMENTS', payload: comments } ) }
-                                                sx={{ height: 60, width: 90, mt:3 }}>
-                                        <Link className={globalClasses.link} to="/review">Next</Link>
-                                        </Button>
+                                        <Link className={globalClasses.link} to="/support">
+                                            <Button variant="contained" 
+                                                    size="large"
+                                                    sx={{ height: 60, width: 90, mt:3, mr: 5 }}>Back
+                                            </Button> 
+                                        </Link>   
+                                        <Link className={globalClasses.link} to="/review">
+                                            <Button variant="contained" 
+                                                    size="large" 
+                                                    onClick={ ()=>dispatch( { type: 'ADD_COMMENTS', payload: comments } ) }
+                                                    sx={{ height: 60, width: 90, mt:3 }}>Next
+                                            </Button>
+                                        </Link>
                                     </Box>     
                                 </CardContent>
                             </Card>
