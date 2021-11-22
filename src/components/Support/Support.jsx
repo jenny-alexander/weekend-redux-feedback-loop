@@ -12,7 +12,6 @@ function Support( props ) {
     const [ support, setSupport ] = useState( supportRating );
     const globalClasses = GlobalCSS();
     
-
     return (
         <div>
             <Header />
@@ -35,16 +34,21 @@ function Support( props ) {
                                                 onChange={ ( event, newValue ) => { setSupport( newValue ) } } />
                                     </Box>
                                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}} >
-                                        <Button variant="contained" size="large"
+                                        <Link className={globalClasses.link} to="/understanding" style={{ textDecoration: 'none' }}>
+                                            <Button variant="contained" size="large"
                                                 sx={{ height: 60, width: 90, mt:5, mr: 5 }}>
-                                            <Link className={globalClasses.link} to="/understanding" style={{ textDecoration: 'none' }}>Back</Link>
-                                        </Button>    
-                                        <Button variant="contained" 
-                                                size="large"
-                                                disabled={ support > 0 ? false : true }
-                                                onClick={ ()=>dispatch( { type: 'ADD_SUPPORT', payload: support } ) }
-                                                sx={{ height: 60, width: 90, mt:5 }}>
-                                            <Link className={globalClasses.link} to="/comments" style={{ textDecoration: 'none' }}>Next</Link></Button>
+                                                Back
+                                            </Button>    
+                                        </Link>
+                                        <Link className={globalClasses.link} to="/comments" style={{ textDecoration: 'none' }}>
+                                            <Button variant="contained" 
+                                                    size="large"
+                                                    disabled={ support > 0 ? false : true }
+                                                    onClick={ ()=>dispatch( { type: 'ADD_SUPPORT', payload: support } ) }
+                                                    sx={{ height: 60, width: 90, mt:5 }}>
+                                                    Next
+                                            </Button>
+                                        </Link>
                                     </Box>     
                                 </CardContent>
                             </Card>

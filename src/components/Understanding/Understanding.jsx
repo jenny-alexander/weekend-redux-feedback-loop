@@ -34,18 +34,20 @@ function Understanding( props ) {
                                             onChange={(event, newValue) => { setUnderstanding(newValue) } }/>
                                 </Box>
                                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                                    <Button variant="contained" 
-                                            size="large"
-                                            sx={{ height: 60, width: 90, mt:5, mr: 5 }}>
-                                    <Link className={globalClasses.link} to="/feeling">Back</Link>
-                                    </Button>    
-                                    <Button variant="contained" 
-                                            size="large"
-                                            disabled={ understanding > 0 ? false : true }
-                                            onClick={ ()=>dispatch( { type: 'ADD_UNDERSTANDING', payload: understanding } ) }
-                                            sx={{ height: 60, width: 90, mt:5 }}>
-                                            <Link className={globalClasses.link} to="/support">Next</Link>
-                                    </Button>
+                                    <Link className={globalClasses.link} to="/feeling">
+                                        <Button variant="contained" 
+                                                size="large"
+                                                sx={{ height: 60, width: 90, mt:5, mr: 5 }}>Back</Button>    
+                                    </Link>
+                                    <Link className={globalClasses.link} to="/support">
+                                        <Button variant="contained" 
+                                                size="large"
+                                                disabled={ understanding > 0 ? false : true }
+                                                onClick={ ()=>dispatch( { type: 'ADD_UNDERSTANDING', payload: understanding } ) }
+                                                sx={{ height: 60, width: 90, mt:5 }}>
+                                                Next
+                                        </Button>
+                                    </Link>
                                 </Box>     
                             </CardContent>
                         </Card>

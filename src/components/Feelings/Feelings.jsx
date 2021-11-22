@@ -1,5 +1,5 @@
 import react from "react";
-import {useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from "react";
 import Header from '../Header/Header';
 import { Container, Grid, Card, CardContent, Rating, Typography, Button, Box } from '@mui/material';
@@ -16,7 +16,6 @@ function Feeling( props ) {
     return (
         <div>
             <Header />
-            <p>{JSON.stringify(feelingRating)}</p>
             <body>        
                 <Container>
                     <Grid container 
@@ -39,7 +38,8 @@ function Feeling( props ) {
                                     <Link className={globalClasses.link} to="/">
                                         <Button variant="contained" 
                                                 size="large"
-                                                sx={{ height: 60, width: 90, mt:5, mr: 5 }}>Back
+                                                sx={{ height: 60, width: 90, mt:5, mr: 5 }}>
+                                                Back
                                         </Button>
                                     </Link>    
                                     <Link className={globalClasses.link} to='/understanding'>
