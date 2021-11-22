@@ -31,24 +31,6 @@ function Admin( props ) {
         })
     }
 
-    const deleteFeedback=( id )=>{
-        axios.delete(`/feedback/delete/${id}`).then( ( response )=>{
-            console.log(`back from Delete`)
-            getFeedbackFromDB();
-        }).catch( ( error )=>{
-            console.log( `Error deleting feedback record:`, error );
-        })
-    }
-
-    const reviewFeedback=( row )=>{
-        row.flagged = true;
-        console.log(`in reviewFeedback with id:`, row);
-        axios.put(`feedback/flagged/${row.id}`, row).then( ( response )=>{
-        }).catch( ( error )=>{
-            console.log( `Error updating review field`, error );
-        })
-    }
-
     return (
         <div>
             <h1>Speak Up! Admin Form</h1>
