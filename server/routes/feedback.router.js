@@ -6,6 +6,7 @@ const pool = require('../modules/pool');
 // GET all feedback from db
 router.get('/', ( req, res )=>{
     //Select all of the feedback
+    console.log( `hello from GET on server`)
     const queryString =  `SELECT * FROM feedback;`;
     pool.query( queryString).then( ( results )=>{
         res.send( results.rows );
