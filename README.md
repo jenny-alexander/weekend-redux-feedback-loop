@@ -2,7 +2,7 @@
 
 ## Description
 
-The objective of this challenge was to build a feedback form that uses **React and Redux** as the primary framework on the front-end.
+The objective of this challenge was to build a feedback form application that uses the **React** framework and the **Redux** library.
 
 The feedback form should demonstrate the CRUD principles in actions.
 
