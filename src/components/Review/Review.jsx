@@ -34,9 +34,14 @@ function Review( props ) {
         let newFeedback = {
             feeling: feelingRating,
             understanding: understandingRating,
-            support: supportRating,
-            comments: comments
+            support: supportRating
+            //comments: comments
         }
+        //only include comments if they are not empty (otherwise, empty array appears in db)
+        if ( comments.length > 0 ) {
+            newFeedback.comments = comments;
+        }
+
         axios.post( `/feedback`, newFeedback ).then( ( response )=>{ 
         }).catch( ( error )=>{
             alert( 'Error adding new task!' );
@@ -55,7 +60,7 @@ function Review( props ) {
                           direction='column'
                           alignItems= 'center'>
                         <Grid item xs={12}>
-                            <Card variant="outlined" className={globalClasses.reviewCard}>
+                            <Card className={globalClasses.reviewCard} elevation={3} sx={{border:1}}>
                                 <CardContent>
                                     <Typography className={globalClasses.question}
                                                 sx={{ fontSize: 30}}>

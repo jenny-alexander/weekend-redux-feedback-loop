@@ -36,7 +36,7 @@ function Admin( props ) {
             <h1>Speak Up! Admin Form</h1>
             <body>
             <Container>
-                <TableContainer component={Paper} elevation={5}
+                <TableContainer component={Paper} elevation={3}
                     sx={{border:1}}>
                     <Table aria-label="feedback table">
                         <TableHead>

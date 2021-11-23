@@ -20,7 +20,7 @@ function Support( props ) {
                         direction="column" 
                         alignItems= 'center'>
                         <Grid item xs={12}>
-                            <Card variant="outlined" className={globalClasses.card}>
+                            <Card className={globalClasses.card} elevation={3} sx={{border:1}}>
                                 <CardContent>
                                     <Typography sx={{fontSize: '30px', mt:3 }} className={globalClasses.question}>
                                         How well are you being supported?

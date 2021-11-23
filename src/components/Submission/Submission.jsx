@@ -21,7 +21,7 @@ function Submission( props ) {
                         direction="column" 
                         alignItems= 'center'>
                         <Grid item xs={12}>
-                            <Card variant="outlined" className={globalClasses.card}>
+                            <Card className={globalClasses.card} elevation={3} sx={{border:1}}>
                                 <CardContent>
                                     <Typography sx={{ p:2, textAlign: 'center', fontSize: '30px' }} >
                                         Feedback Received!

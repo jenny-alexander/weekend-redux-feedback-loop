@@ -13,6 +13,7 @@ const GlobalCSS = makeStyles((theme) => ({
   card:{
     height: 275,
     width: 650,
+    border: 1
   },
   reviewCard:{
     height: 450,
