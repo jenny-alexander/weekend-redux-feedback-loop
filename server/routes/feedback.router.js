@@ -43,7 +43,6 @@ router.delete('/delete/:id', ( req, res )=>{
 router.put( '/flagged/:id', ( req, res )=>{
     const queryString = `UPDATE feedback SET flagged = ${req.body.flagged}
                          WHERE id = ${req.params.id};`;
-                         console.log(`query string is:`, queryString )
     pool.query( queryString ).then( ( results )=>{
         res.sendStatus( 200 );
     }).catch( ( error )=>{
