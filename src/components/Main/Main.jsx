@@ -1,3 +1,4 @@
+import { useDispatch } from 'react-redux';
 import Header from '../Header/Header';
 import { Container, Grid, Card, CardContent, Typography, Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -5,6 +6,7 @@ import GlobalCSS from '../GlobalCSS/GlobalCSS'
 
 function Main( props ) {
     const globalClasses = GlobalCSS();
+    const dispatch = useDispatch();
 
     return (
         <div>
@@ -21,10 +23,9 @@ function Main( props ) {
                                     <Box className={globalClasses.box}>
                                         <Link className={globalClasses.link} to="/feeling">
                                             <Button variant="contained" 
-                                                    size="large"                           
-                                                    sx={{ height: 60, width: 90, mt:7 }}>
-                                                Start
-                                            </Button>
+                                                    size="large"      
+                                                    onClick={ ()=>dispatch( { type: 'EMPTY_FEEDBACK', payload: [] } ) }                   
+                                                    sx={{ height: 60, width: 90, mt:7 }}>Start</Button>
                                         </Link>
                                     </Box>     
                                 </CardContent>

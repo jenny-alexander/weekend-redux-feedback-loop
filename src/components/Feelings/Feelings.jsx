@@ -37,18 +37,14 @@ function Feeling( props ) {
                                     <Link className={globalClasses.link} to="/">
                                         <Button variant="contained" 
                                                 size="large"
-                                                sx={{ height: 60, width: 90, mt:5, mr: 5 }}>
-                                                Back
-                                        </Button>
+                                                sx={{ height: 60, width: 90, mt:5, mr: 5 }}>Back</Button>
                                     </Link>    
                                     <Link className={globalClasses.link} to='/understanding'>
                                         <Button variant="contained" 
                                                 disabled={ feeling > 0 ? false : true }
                                                 size="large"
                                                 onClick={ ()=>dispatch( { type: 'ADD_FEELING', payload: feeling } ) }
-                                                sx={{ height: 60, width: 90, mt:5 }}>
-                                                Next
-                                        </Button>
+                                                sx={{ height: 60, width: 90, mt:5 }}>Next</Button>
                                     </Link>
                                 </Box>     
                             </CardContent>

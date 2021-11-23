@@ -9,8 +9,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import StarIcon from '@mui/icons-material/Star';
 import { Link } from 'react-router-dom';
-import GlobalCSS from '../GlobalCSS/GlobalCSS'
-import { PinDropSharp } from '@mui/icons-material';
+import GlobalCSS from '../GlobalCSS/GlobalCSS';
 
 function Review( props ) {
     //reducer
@@ -36,7 +35,6 @@ function Review( props ) {
             feeling: feelingRating,
             understanding: understandingRating,
             support: supportRating
-            //comments: comments
         }
         //only include comments if they are not empty (otherwise, empty array appears in db)
         if ( comments.length > 0 ) {
@@ -48,7 +46,7 @@ function Review( props ) {
             alert( 'Error adding new task!' );
             console.log( error );
         })
-        //Clear out store if axios call is successful
+        //Clear out store
         dispatch( { type: 'EMPTY_FEEDBACK', payload: [] } );
     }
 
@@ -94,16 +92,13 @@ function Review( props ) {
                                         <Link className={globalClasses.link} to="/comments">
                                             <Button variant="contained" 
                                                     size="large"
-                                                    sx={{ height: 60, width: 90, m:3}}>Back
-                                            </Button>  
+                                                    sx={{ height: 60, width: 90, m:3}}>Back</Button>  
                                         </Link>
                                         <Link className={globalClasses.link} to="/submission">
                                             <Button variant="contained" 
                                                     size="large"
                                                     sx={{ height: 60, width: 90, m:3}}
-                                                    onClick={onSubmit}>                                        
-                                                Submit
-                                            </Button>  
+                                                    onClick={onSubmit}>Submit</Button>  
                                         </Link>  
                                     </Box>     
                                 </CardContent>

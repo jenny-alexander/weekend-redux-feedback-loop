@@ -36,6 +36,7 @@ function Understanding( props ) {
                                     <Link className={globalClasses.link} to="/feeling">
                                         <Button variant="contained" 
                                                 size="large"
+                                                onClick={ ()=>dispatch( { type: 'ADD_UNDERSTANDING', payload: understanding } ) }
                                                 sx={{ height: 60, width: 90, mt:5, mr: 5 }}>Back</Button>    
                                     </Link>
                                     <Link className={globalClasses.link} to="/support">
@@ -43,9 +44,7 @@ function Understanding( props ) {
                                                 size="large"
                                                 disabled={ understanding > 0 ? false : true }
                                                 onClick={ ()=>dispatch( { type: 'ADD_UNDERSTANDING', payload: understanding } ) }
-                                                sx={{ height: 60, width: 90, mt:5 }}>
-                                                Next
-                                        </Button>
+                                                sx={{ height: 60, width: 90, mt:5 }}>Next</Button>
                                     </Link>
                                 </Box>     
                             </CardContent>
