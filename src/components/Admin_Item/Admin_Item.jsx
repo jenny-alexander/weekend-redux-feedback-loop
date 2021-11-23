@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FlagIcon from '@mui/icons-material/Flag';
 import TableRow from '@mui/material/TableRow';
+import { TryRounded } from '@mui/icons-material';
 
 function Admin_Item( props ) {
     const[ feedbackItem, setFeedbackItem ] = useState( {
@@ -27,7 +28,7 @@ function Admin_Item( props ) {
         })
     }
 
-    const setFlagged=( )=>{
+    const setFlagged=( event )=>{
         if ( feedbackItem.flagged ) {
             setFeedbackItem( {...feedbackItem, flagged: false } )
         } else {
@@ -50,7 +51,7 @@ function Admin_Item( props ) {
                 <IconButton size="large" sx={{mr:2 }} onClick={deleteFeedback} aria-label="delete">
                     <DeleteIcon />
                 </IconButton>
-                <IconButton color="error" onClick={setFlagged} aria-label="flag for review">
+                <IconButton color="error" onClick={ ( event )=>(setFlagged(event ))} aria-label="flag for review">
                     <FlagIcon />
                 </IconButton>
             </TableCell>

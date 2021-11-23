@@ -10,6 +10,7 @@ import ListItemText from '@mui/material/ListItemText';
 import StarIcon from '@mui/icons-material/Star';
 import { Link } from 'react-router-dom';
 import GlobalCSS from '../GlobalCSS/GlobalCSS'
+import { PinDropSharp } from '@mui/icons-material';
 
 function Review( props ) {
     //reducer
@@ -51,6 +52,20 @@ function Review( props ) {
         dispatch( { type: 'EMPTY_FEEDBACK', payload: [] } );
     }
 
+    function FeedbackRating( props ) {
+
+        return (
+            <ListItem>
+                <ListItemText primary={props.primary} 
+                            disableTypography='true'
+                            className={globalClasses.listItemText}/>
+                <ListItemIcon sx={{minWidth: 300 }}>
+                    { createStarIcons( props.rating )}
+                </ListItemIcon>
+            </ListItem>
+        )
+    }
+
     return (
         <div>
             <Header />
@@ -67,30 +82,9 @@ function Review( props ) {
                                         Review Your Feedback
                                     </Typography>
                                     <List sx={{ maxWidth: 650, bgcolor: 'background.paper' }}>
-                                        <ListItem>
-                                            <ListItemText primary="Feelings:" 
-                                                          disableTypography='true'
-                                                          className={globalClasses.listItemText}/>
-                                            <ListItemIcon sx={{minWidth: 300 }}>
-                                                { createStarIcons( feelingRating )}
-                                            </ListItemIcon>
-                                        </ListItem>
-                                        <ListItem >
-                                            <ListItemText primary="Understanding:" 
-                                                          disableTypography='true'
-                                                          className={globalClasses.listItemText}/>
-                                            <ListItemIcon sx={{ minWidth: 300 }}>
-                                                { createStarIcons( understandingRating )}
-                                            </ListItemIcon>
-                                        </ListItem>
-                                        <ListItem >
-                                             <ListItemText primary="Support:" 
-                                                          disableTypography='true'
-                                                          className={globalClasses.listItemText}/>
-                                            <ListItemIcon sx={{minWidth: 300 }}>
-                                                { createStarIcons( supportRating )}
-                                            </ListItemIcon>
-                                        </ListItem>
+                                        <FeedbackRating primary={"Feelings:"} rating={feelingRating} />
+                                        <FeedbackRating primary={"Understanding:"} rating={understandingRating} />
+                                        <FeedbackRating primary={"Support:"} rating={supportRating} />
                                     </List> 
                                     <Grid justifyContent="left" item xs zeroMinWidth>
                                         <h4 sx={{ marginTop: 0, textAlign: "left" }}>Comments:</h4>
