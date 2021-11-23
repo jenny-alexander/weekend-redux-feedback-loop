@@ -6,8 +6,7 @@ const pool = require('../modules/pool');
 // GET all feedback from db
 router.get('/', ( req, res )=>{
     //Select all of the feedback
-    console.log( `hello from GET on server`)
-    const queryString =  `SELECT * FROM feedback;`;
+    const queryString =  `SELECT * FROM feedback ORDER BY id DESC;`;
     pool.query( queryString).then( ( results )=>{
         res.send( results.rows );
     }).catch( ( error ) =>{
@@ -31,7 +30,6 @@ router.post('/', ( req, res )=>{
 
 //DELETE Route
 router.delete('/delete/:id', ( req, res )=>{
-    console.log(`DELETE fired on server with req.params :`, req.params )
     const queryString = `DELETE FROM feedback WHERE id='${req.params.id}';`;
     pool.query( queryString ).then( ( result )=>{
         res.sendStatus( 200 );
@@ -43,9 +41,9 @@ router.delete('/delete/:id', ( req, res )=>{
 
 //PUT Route for updating review flag
 router.put( '/flagged/:id', ( req, res )=>{
-    console.log(`in PUT of flagged with:`, req.body);
     const queryString = `UPDATE feedback SET flagged = ${req.body.flagged}
                          WHERE id = ${req.params.id};`;
+                         console.log(`query string is:`, queryString )
     pool.query( queryString ).then( ( results )=>{
         res.sendStatus( 200 );
     }).catch( ( error )=>{
